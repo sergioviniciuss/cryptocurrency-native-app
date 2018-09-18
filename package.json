@@ -17,7 +17,7 @@
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
     "test": "jest",
-    "postinstall": "remotedev-debugger — hostname localhost — port 5678 — injectserver"
+    "postinstall": "remotedev-debugger --hostname localhost --port 5678 --injectserver"
   },
   "remotedev": {
     "hostname": "localhost",
