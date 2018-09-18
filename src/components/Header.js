@@ -4,7 +4,7 @@ import { View, Text, StyleSheet } from 'react-native';
 const Header = () => (
     <View style={styles.headerContainer}>
         <Text style={styles.header}>
-            My App
+            Cryptocurrency list
         </Text>
     </View>
 );
