@@ -6,17 +6,26 @@ import {
 }
 from 'react-native';
 import fetchCoinData from '../actions/fetchCoinData';
+import CoinCard from './CoinCard';
 
 
 class CryptoContainer extends Component {
     componentDidMount() {
-        console.log(this.props)
         this.props.fetchCoinData();
+    }
+    renderCoinCards() {
+        const { crypto } = this.props;
+        return crypto.data.map((coin, index) => 
+            <CoinCard
+                key={index}
+                {...coin}
+            />
+        );
     }
     render() {
         return (
             <View>
-                <Text>Container</Text>
+                {this.renderCoinCards()}
             </View>
         )
     }
