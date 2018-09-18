@@ -5,8 +5,14 @@ import {
     Text
 }
 from 'react-native';
+import fetchCoinData from '../actions/fetchCoinData';
+
 
 class CryptoContainer extends Component {
+    componentDidMount() {
+        console.log(this.props)
+        this.props.fetchCoinData();
+    }
     render() {
         return (
             <View>
@@ -22,4 +28,4 @@ function mapStatesToProps(state) {
     }
 }
 
-export default connect(mapStatesToProps)(CryptoContainer);
+export default connect(mapStatesToProps, { fetchCoinData })(CryptoContainer);
