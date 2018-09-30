@@ -89,7 +89,8 @@ const CoinCard = (props) => {
         price_usd,
         percent_change_24h,
         percent_change_7d
-    } = props;
+    } = props.item;
+
     return (
         <View style={container}>
 

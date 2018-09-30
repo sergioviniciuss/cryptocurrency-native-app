@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import {
     View,
-    ScrollView,
+    FlatList,
 }
 from 'react-native';
 import Spinner from 'react-native-loading-spinner-overlay';
@@ -14,15 +14,7 @@ class CryptoContainer extends Component {
     componentDidMount() {
         this.props.fetchCoinData();
     }
-    renderCoinCards() {
-        const { crypto } = this.props;
-        return crypto.data.map((coin, index) => 
-            <CoinCard
-                key={index}
-                {...coin}
-            />
-        );
-    }
+
     render() {
         const { crypto } = this.props;
         if (crypto.isFetching) {
@@ -38,9 +30,12 @@ class CryptoContainer extends Component {
             )
         }
         return (
-            <ScrollView contentContainerStyle={styles.contentContainer}>
-                {this.renderCoinCards()}
-            </ScrollView>
+            <FlatList
+                contentContainerStyle={styles.contentContainer}
+                data={crypto.data}
+                renderItem={({ ...coin }) => (<CoinCard { ...coin }/>)}
+                keyExtractor={coin => `${coin.id}`}
+            />
         )
     }
 }
