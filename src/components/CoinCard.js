@@ -6,7 +6,7 @@ import {
     Image
 }
 from 'react-native';
-import {images}  from '../utils/coinIcons';
+import { images }  from '../utils/coinIcons';
 
 const styles = StyleSheet.create({
     container: {
@@ -83,7 +83,13 @@ const {
 
 
 const CoinCard = (props) => {
-    const { symbol, coin_name, price_usd, percent_change_24h, percent_change_7d } = props;
+    const {
+        symbol,
+        name,
+        price_usd,
+        percent_change_24h,
+        percent_change_7d
+    } = props;
     return (
         <View style={container}>
 
@@ -94,7 +100,7 @@ const CoinCard = (props) => {
                 />
                 <Text style={coinSymbol}>{symbol}</Text>
                 <Text style={seperator}>|</Text>
-                <Text style={coinName}>{coin_name}</Text>
+                <Text style={coinName}>{name}</Text>
                 <Text style={coinPrice}>{price_usd}
                     <Text style={moneySymbol}> $ </Text>
                 </Text>
