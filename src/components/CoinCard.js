@@ -90,14 +90,14 @@ const CoinCard = (props) => {
         percent_change_24h,
         percent_change_7d
     } = props.item;
-
+    const coinIcon = images[symbol] ? images[symbol] : images.DEFAULT;
     return (
         <View style={container}>
 
             <View style={upperRow}>
                 <Image
                     style={styles.image}
-                    source={{ uri: images[symbol] }}
+                    source={{ uri: coinIcon }}
                 />
                 <Text style={coinSymbol}>{symbol}</Text>
                 <Text style={seperator}>|</Text>
